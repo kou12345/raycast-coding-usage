@@ -1,0 +1,68 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "coding-usage",
+  "title": "Coding Usage",
+  "description": "Check Codex and Claude subscription usage and reset times.",
+  "icon": "icon.png",
+  "author": "kou12345",
+  "categories": [
+    "Developer Tools"
+  ],
+  "platforms": [
+    "macOS"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "usage",
+      "title": "Show Coding Usage",
+      "description": "Show Codex and Claude quota windows.",
+      "mode": "view"
+    },
+    {
+      "name": "usage-menu-bar",
+      "title": "Coding Usage Menu Bar",
+      "description": "Keep Codex and Claude usage in the menu bar.",
+      "mode": "menu-bar",
+      "interval": "5m"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "codexAuthFile",
+      "title": "Codex Auth File",
+      "description": "Use the auth.json belonging to the Codex account you want to monitor.",
+      "type": "textfield",
+      "required": false,
+      "default": "~/.codex/auth.json"
+    },
+    {
+      "name": "claudeCredentialsFile",
+      "title": "Claude Credentials File",
+      "description": "Claude Code credentials file. On macOS, Keychain is also checked if this file is missing or expired.",
+      "type": "textfield",
+      "required": false,
+      "default": "~/.claude/.credentials.json"
+    }
+  ],
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "lint": "ray lint",
+    "test": "tsx --test tests/*.test.ts",
+    "check:live": "tsx scripts/check-live.ts"
+  },
+  "dependencies": {
+    "@raycast/api": "^2.7.3",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.9.0",
+    "tsx": "^4.20.0",
+    "@raycast/eslint-config": "^2.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0"
+  }
+}
